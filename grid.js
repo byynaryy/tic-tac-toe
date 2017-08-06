@@ -1,42 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            table {
-                width: 200px;
-            }
-            tr, td {
-                 border: 1px solid black;
-                 height: 100px;
-            }
-        </style>
-    </head>
-    <body>
-        <table>
-            <tr>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
+let array = [ [ 'x', 'O', 'O' ], [ 'O', 'O', 'O' ], [ 'O', 'O', 'O' ] ];
 
-            </tr>
-            <tr>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-            </tr>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-            </tr>
-        </table>
-    </body>
-</html>
+
+
+var diagonal = function(Array) {
+    if(Array[0][0] == Array[1][1] && Array[0][0] == Array[2][2]) {
+        return true; 
+    }if(Array[0][2] == Array[1][1] && Array[0][2] == Array[2][0]) {
+        return true;
+    }
+
+}
+
+console.log(diagonal(array));
+
+if(diagonal(array)) {
+    console.log("nimeshinda");
+}

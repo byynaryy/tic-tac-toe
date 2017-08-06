@@ -2,11 +2,14 @@
 <html>
     <head>
         <style>
-            table {
-                width: 200px;
+            .horizontal {
+                 border-top: 1px solid black;
+                 border-bottom: 1px solid black;
+                 width: 100px;
             }
-            tr, td {
-                 border: 1px solid black;
+            .vertical {
+                 border-left: 1px solid black;
+                 border-right: 1px solid black;
                  height: 100px;
             }
         </style>
@@ -14,29 +17,30 @@
     <body>
         <table>
             <tr>
-                <td>
+                <td id="zero-zero" onclick="play()">
                 </td>
-                <td>
+                <td class="vertical">
                 </td>
                 <td>
                 </td>
 
             </tr>
             <tr>
-                <td>
+                <td class="horizontal">
                 </td>
-                <td>
+                <td class="vertical horizontal">
                 </td>
-                <td>
+                <td class="horizontal">
                 </td>
             </tr>
                 <td>
                 </td>
-                <td>
+                <td class="vertical">
                 </td>
                 <td>
                 </td>
             </tr>
         </table>
+        <script src="app.js"></script>
     </body>
 </html>
