@@ -8,6 +8,7 @@ class Game {
 
 
     play(id) {
+        console.log("id is: "+id);
         this.populateGrid(id);
         console.log(this.checkForWinner(this.horizontal));
         this.changePlayer();
@@ -67,13 +68,20 @@ class Game {
 
     checkForWinner(f) {
         if(f(this.grid)) {
+            //f(this.grid);
             return "winner is: "+this.mark; 
         }
     }
 
 
-    horizontal(grid) {
-        return grid[0][1] == grid[0][1] && grid[0][0] == grid[0][2];
+    horizontal(f) {
+        if(f[0][0] != "" && f[0][1] != "" && f[0][2] != "") { 
+            return f[0][0] == f[0][1] && f[0][0] == f[0][2];
+        }else if(f[1][0] != "" && f[1][1] != "" && f[1][2] != "") { 
+            return f[1][0] == f[1][1] && f[1][0] == f[1][2]; 
+        }else if(f[2][0] != "" && f[2][1] != "" && f[2][2] != "") { 
+            return f[2][0] == f[2][1] && f[2][0] == f[2][2]; 
+        }
     }
 
 
