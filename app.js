@@ -10,7 +10,7 @@ class Game {
     play(id) {
         console.log("id is: "+id);
         this.populateGrid(id);
-        console.log(this.checkForWinner(this.horizontal));
+        console.log(this.checkForWinner(this.horizontal, this.vertical, this.diagonal));
         this.changePlayer();
         this.displayGrid();
     }
@@ -66,8 +66,12 @@ class Game {
     }
 
 
-    checkForWinner(f) {
+    checkForWinner(f, g, h) {
         if(f(this.grid)) {
+            return "winner is: "+this.mark; 
+        }else if(g(this.grid)) {
+            return "winner is: "+this.mark; 
+        }else if(h(this.grid)) {
             return "winner is: "+this.mark; 
         }
     }
@@ -80,6 +84,26 @@ class Game {
             return grid[1][0] == grid[1][1] && grid[1][0] == grid[1][2]; 
         }else if(grid[2][0] != "" && grid[2][1] != "" && grid[2][2] != "") { 
             return grid[2][0] == grid[2][1] && grid[2][0] == grid[2][2]; 
+        }
+    }
+    
+    
+    vertical(grid) {
+        if(grid[0][0] != "" && grid[1][0] != "" && grid[2][0] != "") { 
+            return grid[0][0] == grid[1][0] && grid[0][0] == grid[2][0];
+        }else if(grid[0][1] != "" && grid[1][1] != "" && grid[2][1] != "") { 
+            return grid[0][1] == grid[1][1] && grid[0][1] == grid[2][1]; 
+        }else if(grid[0][2] != "" && grid[1][2] != "" && grid[2][2] != "") { 
+            return grid[0][2] == grid[1][2] && grid[0][2] == grid[2][2]; 
+        }
+    }
+    
+    
+    diagonal(grid) {
+        if(grid[0][0] != "" && grid[1][1] != "" && grid[2][2] != "") { 
+            return grid[0][0] == grid[1][1] && grid[0][0] == grid[2][2];
+        }else if(grid[0][2] != "" && grid[1][1] != "" && grid[2][0] != "") { 
+            return grid[0][2] == grid[1][1] && grid[0][2] == grid[2][0]; 
         }
     }
 
