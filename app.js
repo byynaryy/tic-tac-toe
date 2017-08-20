@@ -68,23 +68,22 @@ class Game {
 
     checkForWinner(f) {
         if(f(this.grid)) {
-            //f(this.grid);
             return "winner is: "+this.mark; 
         }
     }
 
 
-    horizontal(f) {
-        if(f[0][0] != "" && f[0][1] != "" && f[0][2] != "") { 
-            return f[0][0] == f[0][1] && f[0][0] == f[0][2];
-        }else if(f[1][0] != "" && f[1][1] != "" && f[1][2] != "") { 
-            return f[1][0] == f[1][1] && f[1][0] == f[1][2]; 
-        }else if(f[2][0] != "" && f[2][1] != "" && f[2][2] != "") { 
-            return f[2][0] == f[2][1] && f[2][0] == f[2][2]; 
+    horizontal(grid) {
+        if(grid[0][0] != "" && grid[0][1] != "" && grid[0][2] != "") { 
+            return grid[0][0] == grid[0][1] && grid[0][0] == grid[0][2];
+        }else if(grid[1][0] != "" && grid[1][1] != "" && grid[1][2] != "") { 
+            return grid[1][0] == grid[1][1] && grid[1][0] == grid[1][2]; 
+        }else if(grid[2][0] != "" && grid[2][1] != "" && grid[2][2] != "") { 
+            return grid[2][0] == grid[2][1] && grid[2][0] == grid[2][2]; 
         }
     }
 
-
+    
     displayGrid() {
         for(let i = 0; i < this.grid.length; i++) {
             for(let j = 0; j < this.grid[i].length; j++) {
