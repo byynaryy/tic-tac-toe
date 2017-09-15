@@ -3,16 +3,24 @@ class Game {
         this.player1 = p1;
         this.player2 = p2;
         this.mark = p1;
+        this.winner = "";
+        this.count = 0;
         this.grid = [["", "", ""],["", "", ""], ["", "", ""]];
     }
 
 
     play(id) {
-        console.log("id is: "+id);
-        this.populateGrid(id);
-        console.log(this.checkForWinner(this.horizontal, this.vertical, this.diagonal));
-        this.changePlayer();
-        this.displayGrid();
+        if(this.winner != "") {
+            console.log(this.checkForWinner(this.horizontal, this.vertical, this.diagonal));
+        }else if(this.count === 9) {
+            console.log("This is a tie");
+        }else { 
+            this.populateGrid(id);
+            this.count += 1;
+            this.changePlayer();
+            this.displayGrid();
+        }
+        
     }
 
 
